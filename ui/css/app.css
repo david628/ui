@@ -1,0 +1,89 @@
+.cls-tp {
+  width: 866px;
+  height: 572px;
+  position: relative;
+  margin: 0px auto;
+  padding: 150px 0 0 0;
+  background: url(../images/tp/tpbg.png) center center no-repeat;
+}
+.tools-tls {
+	width: 90px;
+	height: 90px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+	border-radius: 6px;
+}
+.tools-tls .tools-close {
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+	font-size: 14px;
+	border-radius: 50%;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+.tools-tls:hover .tools-close {
+	display: block;
+}
+.tools-close:hover {
+	color: red;
+}
+.tools-select {
+	opacity: 0.6;
+}
+.tools-mask {
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0.6;
+	border: 1px dotted #ddd;
+	background: #eee;
+}
+.tools-panel {
+	border: 1px solid #3e8f3e;
+	transform: skew(-60deg, 20deg);
+}
+.cls-tip {
+	width: 866px;
+	height: 572px;
+	background: url("../images/tp/tpbg.png") center center no-repeat;
+}
+.cls-tp-tools {
+	position: absolute;
+	left: -110px;
+	top: -100px;
+}
+.tools-server_blue {
+	background: url("../images/tp/server_blue.png") center center no-repeat;
+}
+.tools-server_blank {
+	background: url("../images/tp/server_blank.png") center center no-repeat;
+}
+.tools-contect {
+	background: url("../images/tp/contect.png") center center no-repeat;
+}
+.tools-database {
+	background: url("../images/tp/database.png") center center no-repeat;
+}
+.tools-router_blue {
+	background: url("../images/tp/router_blue.png") center center no-repeat;
+}
+.tools-router_green {
+	background: url("../images/tp/router_green.png") center center no-repeat;
+}
+.tools-router_orange {
+	background: url("../images/tp/router_orange.png") center center no-repeat;
+}
+.tools-router_red {
+	background: url("../images/tp/router_red.png") center center no-repeat;
+}

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="shortcut icon" href="./dist/images/favicon.ico" type="image/x-icon"/>
+<link rel="stylesheet" type="text/css" href="css/dbapp.css"/>
+<title></title>
+<style type="text/css">
+html {
+  width: 100%;
+	height: 100%;
+}
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td
+	{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+body {
+  overflow: hidden;
+}
+.cu-wrap {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #000723;
+  overflow: hidden;
+  /* background: rgb(0, 52, 76); */
+}
+.cu-wrap .cu-tools-wrap {
+  width: 100px;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,.5);
+  /* background: #fff; */
+  background: rgb(0, 52, 76);
+  /* background: rgba(3, 30, 48, 0.51); */
+}
+.cu-tools {
+  width: 58px;
+  height: 58px;
+  color: #fff;
+  line-height: 60px;
+  margin: 20px auto;
+  /* border-radius: 50%; */
+  box-shadow: 0 2px 8px rgba(0,0,0,.5);
+  background: #00a58f;
+  cursor: pointer;
+  font-size: 12px;
+  text-align: center;
+  position: relative;
+}
+.cu-tools-wrap .cu-tools:hover {
+  opacity: 0.8;
+}
+.cu-tools .cu-tools-remove {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #333;
+  padding: 5px;
+  margin: 0;
+  line-height: 10px;
+  background: #ea2424;
+  border-radius: 50%;
+  color: #fff;
+  width: 10px;
+  height: 10px;
+  display: none;
+}
+.cu-tools:hover .cu-tools-remove {
+  display: block;
+}
+.cls-resizable-pinned .cu-tools {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+textarea {
+  display: none;
+}
+.cls-resizable-pinned .cu-tools {
+  display: none;
+}
+.cls-resizable-pinned:hover {
+  background-color: #04223a;
+}
+.demo-chart {
+  width: 100%;
+  height: 100%;
+}
+.cu-tools img {
+  width: 58px;
+  height: 58px;
+}
+.earth {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 100px !important;
+  right: 100px !important;
+}
+.earth:hover {
+  background-color: none;
+}
+</style>
+</head>
+<body>
+  <div style="position: fixed;top: 0;left: 0;width: 100%;padding: 3px 10px;color: #bfbfbf;z-index: 10;font-size: 12px;border: 1px solid #000723;background: #000723;text-align: center;">拖拽到右边画布后，移动或改变大小组合大屏（仿dataV测试demo）</div>
+  <div id="id-wrap" class="cu-wrap">
+    <div class="cu-tools-wrap">
+      <div>
+        <div><a href="ui/login.html" style="margin-top: 30px;padding: 10px 20px;color: #fff;box-shadow: 0 2px 8px rgba(0,0,0,.5);border: 0;background: #00a58f;cursor: pointer;display: inline-block;text-decoration: none;">UI库</a></div>
+        <input id="id-_save" type="button" value="保存" style="margin-top: 20px;padding: 10px 20px;color: #fff;box-shadow: 0 2px 8px rgba(0,0,0,.5);border: 0;background: #00a58f;cursor: pointer;">
+      </div>
+      <div class="cu-tools">
+        <span><img src="images/short/earth.png"/></span>
+        <textarea name="earth">
+        (function(global) {
+				  global.earth = new Earth({
+				    el: window.CURRENT
+				  });
+				  earth.animate = function() {
+				    if(earth.rotateTargetX !== undefined && earth.rotateTargetY !== undefined) {
+				      earth.rotateVX += (earth.rotateTargetX - earth.rotateX) * 0.012;
+				      earth.rotateVY += (earth.rotateTargetY - earth.rotateY) * 0.012;
+				      if(Math.abs(earth.rotateTargetX - earth.rotateX) < 0.1 && Math.abs(earth.rotateTargetY - earth.rotateY) < 0.1) {
+				        earth.rotateTargetX = undefined;
+				        earth.rotateTargetY = undefined;
+				      }
+				    }
+				    earth.rotateX += earth.rotateVX;
+				    earth.rotateY += earth.rotateVY;
+				    earth.rotateVX *= 0.98;
+				    earth.rotateVY *= 0.98;
+				    if(earth.dragging || earth.rotateTargetX !== undefined) {
+				      earth.rotateVX *= 0.6;
+				      earth.rotateVY *= 0.6;
+				    }
+				    //earth.rotateY += earth.controllers.spin * 0.01;
+				    if(earth.rotateX < -earth.rotateXMax){
+				      earth.rotateX = -earth.rotateXMax;
+				      earth.rotateVX *= -0.95;
+				    }
+				    if(earth.rotateX > earth.rotateXMax){
+				      earth.rotateX = earth.rotateXMax;
+				      earth.rotateVX *= -0.95;
+				    }
+				    // TWEEN.update();
+				    earth.rotating.rotation.x = earth.rotateX;
+				    earth.rotating.rotation.y = earth.rotateY;
+				    //earth.render();
+				    earth.renderer.clear();               
+				    earth.renderer.render(earth.scene, earth.camera);
+				    requestAnimationFrame(earth.animate);
+				    /*if(THREE.SceneUtils && THREE.SceneUtils.traverseHierarchy) {
+				    	THREE.SceneUtils.traverseHierarchy(earth.rotating, function(mesh) {
+				        if(mesh.update !== undefined) {
+				          mesh.update();
+				        }
+				      });
+				    } else {*/
+				    	for(var i = 0; i < earth.linesCache.length; i++) {
+				    		if(earth.linesCache[i].update !== undefined) {
+				    			earth.linesCache[i].update();
+				        }
+				    	}
+				    //}
+				    for(var i in earth.markers) {
+				      earth.markers[i].update()
+				    }
+				    //if(earth.shaderMaterial) {
+				    	//earth.shaderMaterial.uniforms.time.value += 1;
+				    //}
+				    //earth.shaderMaterial.uniforms.time.value += 1;
+				    //earth.controls.update();
+				  }
+				})(window);
+				
+				
+				/*var data = {"message":"获取告警地图数据成功","data":[{"attackrout":[{"source":{"latlon":"120.153576,30.287459","name":"浙江-杭州","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"116.507676,31.752889","name":"安徽-六安","value":"1"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"1"}},{"source":{"latlon":"120.153576,30.287459","name":"浙江-杭州","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"116.405285,39.904989","name":"北京","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"102.712251,25.040609","name":"云南","value":"7"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"7"}},{"source":{"latlon":"116.405285,39.904989","name":"北京","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"108.948024,34.263161","name":"陕西","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"116.587245,35.415393","name":"山东-济宁","value":"3"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"3"}},{"source":{"latlon":"120.153576,30.287459","name":"浙江-杭州","value":"1"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"1"}},{"source":{"latlon":"118.767413,32.041544","name":"江苏","value":"7"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"7"}},{"source":{"latlon":"116.405285,39.904989","name":"北京","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"116.405285,39.904989","name":"北京","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"126.642464,45.756967","name":"黑龙江-哈尔滨","value":"3"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"3"}},{"source":{"latlon":"120.153576,30.287459","name":"浙江-杭州","value":"7"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"7"}},{"source":{"latlon":"121.472644,31.231706","name":"上海","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"116.405285,39.904989","name":"北京","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"120.153576,30.287459","name":"浙江","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"116.405285,39.904989","name":"北京","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"116.405285,39.904989","name":"北京","value":"7"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"7"}},{"source":{"latlon":"116.405285,39.904989","name":"北京","value":"7"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"7"}},{"source":{"latlon":"120.153576,30.287459","name":"浙江","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"116.405285,39.904989","name":"北京","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"120.153576,30.287459","name":"浙江-杭州","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"118.767413,32.041544","name":"江苏","value":"7"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"7"}},{"source":{"latlon":"111.670801,40.818311","name":"内蒙古-呼和浩特","value":"3"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"3"}},{"source":{"latlon":"113.665412,34.757975","name":"河南-郑州","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"120.153576,30.287459","name":"浙江","value":"7"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"7"}},{"source":{"latlon":"116.405285,39.904989","name":"北京","value":"3"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"3"}},{"source":{"latlon":"120.153576,30.287459","name":"浙江-杭州","value":"7"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"7"}},{"source":{"latlon":"121.472644,31.231706","name":"上海","value":"7"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"7"}},{"source":{"latlon":"116.507676,31.752889","name":"安徽-六安","value":"1"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"1"}},{"source":{"latlon":"116.507676,31.752889","name":"安徽-六安","value":"7"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"7"}},{"source":{"latlon":"113.280637,23.125178","name":"广东-广州","value":"1"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"1"}},{"source":{"latlon":"120.619585,31.299379","name":"江苏-苏州","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"121.472644,31.231706","name":"上海","value":"3"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"3"}},{"source":{"latlon":"116.405285,39.904989","name":"北京","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"102.712251,25.040609","name":"云南-昆明","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"117.184811,34.261792","name":"江苏-徐州","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"121.472644,31.231706","name":"上海","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"113.280637,23.125178","name":"广东","value":"3"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"3"}},{"source":{"latlon":"103.823557,36.058039","name":"甘肃","value":"1"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"1"}},{"source":{"latlon":"120.619585,31.299379","name":"江苏-苏州","value":"3"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"3"}},{"source":{"latlon":"109.411703,24.314617","name":"广西-柳州","value":"1"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"1"}},{"source":{"latlon":"112.982279,28.19409","name":"湖南","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"114.298572,30.584355","name":"湖北-武汉","value":"1"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"1"}},{"source":{"latlon":"118.767413,32.041544","name":"江苏","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"116.587245,35.415393","name":"山东-济宁","value":"3"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"3"}},{"source":{"latlon":"116.405285,39.904989","name":"北京","value":"1"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"1"}},{"source":{"latlon":"120.153576,30.287459","name":"浙江","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}},{"source":{"latlon":"113.852186,27.622946","name":"江西-萍乡","value":"6"},"target":{"latlon":"118.18,32.18","name":"安徽-滁州","value":"6"}}]}],"code":0};
+				earth.load(data["data"][0]["attackrout"]);*/
+				//setTimeout(function() {
+					var data = {"message":"获取告警地图数据成功","data":[{"attackrout":[{"source":{"latlon":"120.153576,30.287459","name":"杭州","value":"7"},"target":{"latlon":"1.718190,46.710670","name":"法国","value":"7"}},{"source":{"latlon":"116.405285,39.904989","name":"北京","value":"6"},"target":{"latlon":"135.718933,35.098129","name":"日本","value":"6"}},{"source":{"latlon":"1.718190,46.710670","name":"法国","value":"6"},"target":{"latlon":"120.153576,30.287459","name":"杭州","value":"6"}},{"source":{"latlon":"127.850166,36.448151","name":"韩国","value":"6"},"target":{"latlon":"116.405285,39.904989","name":"北京","value":"6"}},{"source":{"latlon":"1.718190,46.710670","name":"法国","value":"6"},"target":{"latlon":"102.712251,25.040609","name":"昆明","value":"6"}},{"source":{"latlon":"135.718933,35.098129","name":"日本","value":"5"},"target":{"latlon":"1.718190,46.710670","name":"法国","value":"5"}},{"source":{"latlon":"116.507676,31.752889","name":"六安","value":"5"},"target":{"latlon":"120.153576,30.287459","name":"杭州","value":"5"}},{"source":{"latlon":"120.153576,30.287459","name":"杭州","value":"5"},"target":{"latlon":"127.850166,36.448151","name":"韩国","value":"5"}},{"source":{"latlon":"120.153576,30.287459","name":"杭州","value":"5"},"target":{"latlon":"108.830719,59.453751","name":"俄罗斯","value":"5"}},{"source":{"latlon":"109.939776,33.868319","name":"商洛","value":"5"},"target":{"latlon":"120.153576,30.287459","name":"杭州","value":"5"}},{"source":{"latlon":"135.718933,35.098129","name":"日本","value":"5"},"target":{"latlon":"116.405285,39.904989","name":"北京","value":"5"}},{"source":{"latlon":"1.718190,46.710670","name":"法国","value":"5"},"target":{"latlon":"109.939776,33.868319","name":"商洛","value":"5"}},{"source":{"latlon":"116.405285,39.904989","name":"北京","value":"5"},"target":{"latlon":"120.153576,30.287459","name":"杭州","value":"5"}},{"source":{"latlon":"120.153576,30.287459","name":"杭州","value":"5"},"target":{"latlon":"109.939776,33.868319","name":"商洛","value":"5"}},{"source":{"latlon":"1.718190,46.710670","name":"法国","value":"5"},"target":{"latlon":"127.850166,36.448151","name":"韩国","value":"5"}}]}],"code":0};
+					earth.load([data["data"][0]["attackrout"][0]]);
+				//}, 2000);
+        </textarea>
+      </div>
+      <div class="cu-tools">
+        <span><img src="images/short/map.png"/></span>
+        <textarea>
+        (function(global){
+          let data = [{
+				    source: {
+				      name: '加拿大',
+				      value: 1
+				    },
+				    target: {
+				      name: '北京',
+				      value: 6
+				    }
+				  }, {
+				    source: {
+				      name: '法国',
+				      value: 3
+				    },
+				    target: {
+				      name: '杭州市',
+				      value: 2
+				    }
+				  }];
+				  var m = new Map(window.CURRENT);
+				  m.load(data);
+        })(window);
+        </textarea>
+      </div>
+      <div class="cu-tools">
+        <span><img src="images/short/pie.png"/></span>
+        <textarea>
+        (function(global){
+          global.chart = {
+            init: function() {
+              this.refresh(window.CURRENT);
+            },
+            refresh: function(dom, param) {
+              $.ajax({
+                type: 'post',
+                url: '/waf/screen/attack/sourcearea',
+                dataType: 'json',
+                data: param,
+                error: d => {
+                  var data = {"code":0,"data":[{"name":"http","value":45},{"name":"tcp","value":88},{"name":"udp","value":132},{"name":"https","value":111}],"message":"msg"};
+                  if(data['code'] == 0) {
+                    if(!this.pie) {
+                      this.pie = echarts.init(dom);
+                    }
+                    this.pie.setOption(this.getOption(data['data']));
+                    this.animate(data['data'], dom);
+                  }
+                }
+              })
+            },
+            getOption: function(d){
+              var legend_data=[];
+              var legend_type='scroll';
+              for(var i=0;i<d.length;i++){
+                legend_data.push(d[i]['name']);
+              }
+              if(screen.width<=1366){
+                legend_type='scroll';
+              }
+              else {
+                legend_type='plain';
+              }
+              return {
+                legend: {
+                  type: legend_type,
+                  orient: 'horizontal',
+                  top: '80%',
+                  itemWidth: 10,
+                  itemHeight: 10,
+                  x: 'center',
+                  y: 'top',
+                  textStyle: {
+                    fontSize: 12,
+                    color: '#e4e5e5'
+                  },
+                  pageIconColor: '#e4e5e5',
+                  pageIconInactiveColor: '#2f4554',
+                  pageIconSize: 10,
+                  pageTextStyle: {
+                    color: '#e4e5e5'
+                  },
+                  data: legend_data
+                },
+                color: ['#49d5d4','#4ab7f1','#3d97cc','#3076a4','#23557d','#b2565c','#3f79c8','#30a7e0','#bfae6a','#b9d6df'],
+                series: {
+                  type: 'pie',
+                  center: ['50%', '40%'],
+                  radius: ['30%', '60%'],
+                  avoidLabelOverlap: false,
+                  label: {
+                    normal: {
+                      show: false,
+                      position: 'center'
+                    },
+                    emphasis: {
+                      show: true,
+                      rich: {
+                        labelValue: {
+                          lineHeight: '30',
+                          fontSize: '18',
+                          fontWeight: 'bold'
+                        },
+                        labelName: {
+                          fontSize: '14',
+                          color: '#e4e5e5'
+                        }
+                      },
+                      formatter: function(param){
+                        return '{labelValue|'+param.value+'}'+'\n'+'{labelName|'+param.name+'}';
+                      }
+                    }
+                  },
+                  data: d
+                }
+              }
+            },
+            animate: function(d,dom) {
+              var self=this;
+              var isMove=true;
+              var i=0;
+              var len=d.length;
+              $('#'+dom).on('mouseover',function(){
+                isMove=false;
+                self.pie.dispatchAction({
+                  type:'downplay',
+                  seriesIndex: 0
+                });
+              });
+              $('#'+dom).on('mouseout',function(){
+                isMove=true;
+              });
+              clearInterval(self.time);
+              self.time=setInterval(function(){
+                if(isMove){
+                  if(i==len){
+                    i=0;
+                  }
+                  for(var k=0;k<len;k++){
+                    if(k==i){
+                      self.pie.dispatchAction({
+                        type:'highlight',
+                        seriesIndex: 0, 
+                        dataIndex: i
+                      });
+                    }
+                    else {
+                      self.pie.dispatchAction({
+                        type:'downplay',
+                        seriesIndex: 0, 
+                        dataIndex: k
+                      });
+                    }
+                  }
+                  i++;
+                }
+                else { i=0 }
+              },2000);
+            }
+          };
+          global.chart.init();
+        })(window);
+        </textarea>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="js/echarts/map/world.js"></script>
+<!-- <script type="text/javascript" src="js/echarts/map/oceania.js"></script> -->
+<script type="text/javascript" src="js/echarts/geoCoordMap.js"></script>
+<script type="text/javascript" src="js/dbapp.js"></script>
+<script type="text/javascript" src="js/ui/map.js"></script>
+
+<!-- <script type="text/javascript" src="../js/webGL/js/three.min.js"></script> -->
+<!-- <script type="text/javascript" src="../js/webGL/js/three57.min.js"></script> -->
+<script type="text/javascript" src="js/webGL/js/Three.js"></script>
+<script type="text/javascript" src="js/webGL/js/THREEx.KeyboardState.js"></script>
+<script type="text/javascript" src="js/webGL/js/THREEx.WindowResize.js"></script>
+<!-- <script type="text/javascript" src="js/webGL/js/TrackballControls.js"></script> -->
+<script type="text/javascript" src="js/webGL/js/tessalator3d.js"></script>
+<script type="text/javascript" src="js/webGL/js/country_data.js"></script>
+<script type="text/javascript" src="js/webGL/js/effekseer.min.js"></script>
+<script type="text/javascript" src="js/webGL/js/earth.js"></script>
+
+<script type="text/javascript" src="js/main.js"></script>
+</html>

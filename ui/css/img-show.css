@@ -1,0 +1,110 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+  margin:0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+body {
+  font-family: verdana, Arial;
+  font-size: 12px;
+  line-height: 1;
+  background: #fff;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+a {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  color: #6c6c6c;
+}
+a:hover {
+  color: #f40;
+  transition: color .2s ease-in-out;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.clearfix  { 
+	*zoom: 1;
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0px;
+	font-size: 0px;
+	clear: both;
+	visibility: hidden;
+}
+.imgBox, .imgBox1, .imgBox2 {
+  position: absolute;
+  clear: both;
+  width: 2600px;
+  list-style-type: none;
+}
+.imgBox2 {
+  width: 660px;
+}
+.imgBox > li, .imgBox1 > li {
+  float: left;
+  width: 520px;
+}
+.imgBox2 > li{
+  float: left;
+  width: 220px;
+}
+.imgBox a, .imgBox1 a, .imgBox2 a {
+  display: inline-block;
+}
+.control, .control1, .control2 {
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
+  left: 20px;
+  background: #000;
+  opacity: .3;
+  font-size: 40px;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  line-height: 20px;
+  display: none;
+  cursor: pointer;
+  color: #fff;
+}
+.control2 {
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  left: 15px;
+  font-size: 20px;
+  line-height: 10px;
+}
+.control:hover, .control1:hover, .control2:hover {
+  opacity: .8;
+}
+.to-right, .to-right1 {
+  left: 450px;
+}
+.to-right2{
+  left: 180px;
+}

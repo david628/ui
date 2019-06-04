@@ -1,0 +1,426 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="pragma" content="no-cache"></meta>
+<meta http-equiv="cache-control" content="no-cache"></meta>
+<meta http-equiv="expires" content="0"></meta>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/dbapp.css"/>
+<link rel="stylesheet" type="text/css" href="../css/default.css"/>
+<link rel="stylesheet" type="text/css" href="../css/normal.css"/>
+<link rel="stylesheet" type="text/css" href="../css/dark.css"/>
+<title></title>
+<style type="text/css">
+.bg {
+  background: #345780 !important;
+}
+.mac-desk {
+  width: 980px;
+  height: 700px;
+  margin: 20px auto;
+  border-radius: 30px;
+  display: block;
+  opacity: 0;
+  transform: scale(0.9);
+}
+.mac-desk .icon {
+  margin: 20px 40px;
+}
+.icon {
+  float: left;
+  width: 60px;
+  margin: 0 0 0 30px;
+  cursor: pointer;
+  background: transparent url("mac/shadow.png") no-repeat scroll left center;
+}
+.icon img {
+  height: 50px;
+  margin: 5px;
+}
+.icon:hover{
+	opacity: 0.6;
+}
+.icon span {
+  float: left;
+  width: 60px;
+  height: 10px;
+  margin: 5px auto;
+  display: block;
+  color: #FFF;
+  font-size: 10px;
+  font-family: "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
+  text-align: center;
+  line-height: 10px;
+  text-shadow: 0px 1px 2px #000;
+}
+.mac-menu-wrap {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.mac-menu {
+  margin-left: 290px;
+  padding: 5px 20px;
+  background: transparent url("mac/dock.png") no-repeat scroll center bottom;
+}
+.mac-menu a img {
+  width: 64px;
+}
+.mac-menu a:hover img {
+  width: 107px;
+  animation-name: start;
+  animation-duration: 500ms;
+  -moz-animation-name: start;/* Firefox */
+  -moz-animation-duration: 500ms;/* Firefox */
+  -webkit-animation-name: start;/* Safari 和 Chrome */
+  -webkit-animation-duration: 500ms;/* Safari 和 Chrome */
+  -o-animation-name: start;/* Opera */
+  -o-animation-duration: 500ms;/* Opera */
+}
+img.launch {
+  display: block;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  margin: 5px;
+  cursor: pointer;
+}
+.mac-panel {
+  border-radius: 4px;
+  box-shadow: 1px 20px 30px rgba(0, 0, 0, 0.5);
+  background: #FFFFFF;
+}
+.mac-panel .nav {
+  border-radius: 4px 4px 0 0;
+  background: transparent url("mac/macPanel.png") repeat-x;
+}
+.mac-panel .content {
+  position: relative;
+}
+.qq-panel {
+  height: 100px;
+}
+.mac-panel .nav .pointer {
+  width: 60px;
+  position: absolute;
+  left: 6px;
+  top: 3px;
+  background: transparent url("mac/pointer.png") no-repeat;
+}
+.qq-panel .qq-hd {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  position: absolute;
+  left: 10px;
+  top: 28px;
+  border: 1px solid #DDDDDD;
+  border-radius: 4px;
+}
+.qq-panel .qq-hd:hover {
+  border-color: #00B7EE;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6);
+}
+.qq-panel .nickname {
+  text-shadow: 0px 1px 1px #FFF;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+}
+.qq-panel .state {
+  margin: 0 10px;
+  vertical-align: middle;
+}
+.qq-panel .desc {
+  position: absolute;
+  top: 60px;
+  left: 86px;
+  right: 10px;
+  text-shadow: 0px 1px 1px #FFF;
+  font-size: 12px;
+  color: #000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.qq-content .search {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  line-height: 30px;
+  background: #FFFFFF;
+}
+.search input {
+  position: absolute;
+  right: 0;
+  left: 0;
+}
+.qq-content .userList {
+
+}
+.qq-content .tool {
+  height: 30px;
+  line-height: 30px;
+}
+.cls-dlg-proxy {
+	position: absolute;
+  z-index: 999;
+  border: 1px dotted #333333;
+  -moz-opacity: 0.5;
+	opacity: .50;
+	filter: alpha(opacity = 50);
+  background: #C3DAF9;
+}
+@keyframes start {
+  from {
+    width: 64px;
+  }
+  to {
+    width: 107px;
+  }
+}
+@-moz-keyframes start {/* Firefox */
+  from {
+    width: 64px;
+  }
+  to {
+    width: 107px;
+  }
+}
+@-webkit-keyframes start {/* Safari 和 Chrome */
+  from {
+    width: 64px;
+  }
+  to {
+    width: 107px;
+  }
+}
+@-o-keyframes start {/* Opera */
+  from {
+    width: 64px;
+  }
+  to {
+    width: 107px;
+  }
+}
+</style>
+</head>
+<body class="body-bg bg">
+  <div id="id-proxy" class="cls-dlg-proxy" style="position: absolute;z-index: 1000;visibility: hidden;"></div>
+  <div id="id-test" class="mac-panel" style="width: 300px;height: 555px;position: absolute;z-index: 999;visibility: visible;">
+    <div id="id-handle" class="nav qq-panel">
+      <div class="pointer">&nbsp;</div>
+      <img class="qq-hd" src="mac/hd.jpg"/>
+      <div style="position: absolute;top: 30px;left: 86px;">
+        <span class="nickname">研发二部 - 赵刚华</span><img class="state" src="mac/state.png"/>
+      </div>
+      <div class="desc">多年后重温此书，向所有抗战英雄致敬，勿忘国耻。</div>
+    </div>
+    <div id="id-info" class="content qq-content">
+      <div class="search"></div>
+      <div id="id-userList" class="userList"></div>
+      <div class="tool"></div>
+    </div>
+  </div>
+  
+  <div id="launchpad" class="mac-desk" style="transform: scale(1); opacity: 1;">
+	  <!--***************************   Row 1   ***********************************-->
+	  <div class="shortcut icon" relId="id-test"><img class="menu-icon" src="mac/Safari.png" title="Safari"><span>Safari</span></div>
+	  <div class="shortcut icon" relId="id-test"><img class="menu-icon" src="mac/Mail.png" title="Mail"><span>Mail</span></div>
+	  <div class="shortcut icon" relId="id-test"><img class="menu-icon" src="mac/Appstore.png" title="Appstore"><span>Appstore</span></div>
+	  <div class="shortcut icon" relId="id-test"><img class="menu-icon" src="mac/Pages.png" title="Pages"><span>Pages</span></div>
+	  <div class="shortcut icon" relId="id-test"><img class="menu-icon" src="mac/Numbers.png" title="Numbers"><span>Numbers</span></div>
+	  <div class="shortcut icon" relId="id-test"><img class="menu-icon" src="mac/Keynote.png" title="Keynote"><span>Keynote</span></div>
+	  <div class="shortcut icon" relId="id-test"><img class="menu-icon" src="mac/Aperture.png" title="Aperture"><span>Aperture</span></div>
+	  <div class="shortcut icon" relId="id-test"><img class="menu-icon" src="mac/AddressBook.png" title="AddressBook"><span>AddressBook</span></div>
+	  <!--***************************   Row 2   ***********************************-->
+	  <div class="shortcut icon" relId="id-test"><img class="menu-icon" src="mac/iCalendar.png" title="iCalendar"><span>iCalendar</span></div>
+	  <div class="shortcut icon" relId="id-test"><img class="menu-icon" src="mac/FaceTime.png" title="FaceTime"><span>FaceTime</span></div>
+	  <div class="shortcut icon" relId="id-test"><img class="menu-icon" src="mac/iPhoto.png" title="iPhoto"><span>iPhoto</span></div>
+	  <div class="shortcut icon" relId="id-test"><img class="menu-icon" src="mac/iMovie.png" title="iMovie"><span>iMovie</span></div>
+	  <div class="shortcut icon" relId="id-test"><img class="menu-icon" src="mac/GarageBand.png" title="GarageBand"><span>GarageBand</span></div>
+	  <div class="shortcut icon" relId="id-test"><img class="menu-icon" src="mac/Djay.png" title="Djay"><span>Djay</span></div>
+	  <div class="shortcut icon" relId="id-test"><img class="menu-icon" src="mac/iTunes.png" title="iTunes"><span>iTunes</span></div>
+	  <div class="shortcut icon" relId="id-test"><img class="menu-icon" src="mac/PhotoBooth.png" title="PhotoBooth"><span>PhotoBooth</span></div>
+	  <!--***************************   Row 3   ***********************************-->
+	  <div class="shortcut icon" relId="id-test"><img class="menu-icon" src="mac/qq.png" title="QQ"><span>QQ</span></div>
+	  <div class="shortcut icon" relId="id-test"><img class="menu-icon" src="mac/Dashboard .png" title="Dashboard"><span>Dashboard</span></div>
+	  <div class="shortcut icon" relId="id-test"><img class="menu-icon" src="mac/Compartments.png" title="Compartments"><span>Compartments</span></div>
+	  <div class="shortcut icon" relId="id-test"><img class="menu-icon" src="mac/Developer.png" title="Developer"><span>Developer</span></div>
+	  <div class="shortcut icon" relId="id-test"><img class="menu-icon" src="mac/Pixelmator.png" title="Pixelmator"><span>Pixelmator</span></div>
+  </div>
+  
+  <div class="mac-menu-wrap"> 
+    <div class="mac-menu">
+		  <a class="shortcut" href="javascript:;" relId="id-test"><img src="mac/Finder.png" title="Finder"></a>
+		  <a class="shortcut" href="javascript:;" relId="id-test"><img src="mac/Appstore.png" title="Appstore"></a>
+		  <a class="shortcut" href="javascript:;" relId="id-test"><img src="mac/Mail.png" title="Mail"></a>
+		  <a class="shortcut" href="javascript:;" relId="id-test"><img src="mac/Safari.png" title="Safari"></a>
+		  <a class="shortcut" href="javascript:;" relId="id-test"><img src="mac/FaceTime.png" title="FaceTime"></a>
+		  <a class="shortcut" href="javascript:;" relId="id-test"><img src="mac/qq.png" title="QQ"></a>
+		  <a class="shortcut" href="javascript:;" relId="id-test"><img src="mac/AddressBook.png" title="AddressBook"></a>
+		  <a class="shortcut" href="javascript:;" relId="id-test"><img src="mac/iCalendar.png" title="iCalendar"></a>
+		  <a class="shortcut" href="javascript:;" relId="id-test"><img src="mac/iTunes.png" title="iTunes"></a>
+		  <a class="shortcut" href="javascript:;" relId="id-test"><img src="mac/PhotoBooth.png" title="PhotoBooth"></a>
+		  <a class="shortcut" href="javascript:;" relId="id-test"><img src="mac/iPhoto.png" title="iPhoto"></a>     
+	  </div>     
+  </div>
+  <img class="shortcut launch" src="mac/launchpad.png" title="launchpad" relId="id-test"/>
+</body>
+<script type="text/javascript" src="../js/lang.js"></script>
+<script type="text/javascript" src="../js/setting.js"></script>
+<script type="text/javascript" src="../js/info.js"></script>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/dbapp.js"></script>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript" src="../js/base.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var page = {
+		menuDragZone : null,
+	  init : function() {
+	  	//base.init(["ui", "grid", "resize"]);
+	  	var self = this;
+	  	var dd = new DBapp.DragDrop("id-test", {
+	  	  //constrain : "id-content",
+	  	  //lockX : true,
+	  	  //lockY : true,
+	  	  //deltaX : 10,
+	  	  //deltaX : 30,
+	  		//proxy : false,
+	  		handle : "id-handle"
+	  	});
+	  	var resizer = new DBapp.Resizable("id-test", {
+	  	  handles: "all",
+	  	  minWidth: 200,
+	  	  minHeight: 100,
+	  	  //maxWidth: 500,
+	  	  //maxHeight: 400,
+	  	  pinned: true
+	  	});
+	  	var menuList = $("#launchpad").find(".icon");
+	  	if(menuList && menuList.length) {
+	  		for(var i=0;i<menuList.length;i++) {
+	  			var menu = menuList[i];
+	  			if(!self.menuDragZone) {
+	  				var proxy = document.createElement("div");
+	  				proxy.style.position = "absolute";
+	          //proxy.innerHTML = '<div class="cls-dd-drag-ghost"></div>';
+	          document.body.appendChild(proxy);
+	          self.menuDragZone = new DBapp.DragDrop(proxy, {
+	            constrain : false,
+	            resizeProxy : false,
+	            proxy : proxy,
+	            //scope : this,
+	            handle : menu,
+	            onMouseDown : function(e, target, opt) {
+	            	if(!this.ghost) {
+	  		          this.ghost = this.proxy;
+	            	}
+	            	clone = this.currentHandle.cloneNode(true);
+	            	this.ghost.innerHTML = '<div class="icon">' + clone.innerHTML + '</div>';
+	            	var xy = [e.pageX, e.pageY];
+	  	          this.setStartPos([xy[0], xy[1]]); 
+	  	          this.startX = xy[0];
+	  	          this.startY = xy[1];
+	  	          this.increaseX = this.startX - this.startPageX;
+	  	          this.increaseY = this.startY - this.startPageY;
+	  	          this.hideDrag();
+	  	        },
+	  	        onMouseMove : function(e) {
+	  	        	var drag_jq = jQuery(this.getDrag());
+	  	        	//this.target = self.findRow(e.target);
+	  	        	var target = e.target;
+	  	        	if(DBapp.Css.hasClass(target, "menu-icon")) {
+	  	        		this.target = target;
+	  	        	} else {
+	  	        		this.target = null;
+	  	        	}
+	  	        	/* if(this.target) {
+	  	        		drag_jq.addClass("cls-dd-drop-ok");
+	  	        		drag_jq.removeClass("cls-dd-drop-no");
+	  	        	} else {
+	  	        		drag_jq.addClass("cls-dd-drop-no");
+	  	        		drag_jq.removeClass("cls-dd-drop-ok");
+	  	        	} */
+	  	        },
+	  	        onMouseUp : function(e) {
+	  	        	if(this.target === undefined) {
+	  	        		return;
+	  	        	}
+	  	        	if(this.target) {
+	  	        		var d = this.endPageY - this.startPageY, 
+	          			p = this.target.parentNode.parentNode,
+	          			s = this.currentHandle, 
+	          			t = this.target.parentNode;
+	          			if(d < 0) {
+	                  p.insertBefore(s, t);
+	                } else if(d > 0) {
+	                  if (p.lastChild == t) {
+	                    p.appendChild(s);
+	                  } else {
+	                    p.insertBefore(s, t.nextSibling);
+	                  }
+	                }
+	  	        	} else {
+	  	        		this.showDrag();
+	  	        		var me = this;
+	  	        		var xy = DBapp.Css.getXY(this.currentHandle);
+	  	        		jQuery(this.getDrag()).animate({
+			        			left : xy[0],
+			        			top : xy[1]
+			        		}, 0.35 * 1000, undefined, function() {
+			        			me.hideDrag();
+			        		});
+	  	        	}
+	  	        	delete this.target;
+	  	        }
+	          });
+	      	} else {
+	      		self.menuDragZone.addHandle(menu);
+	      	}
+	  		}
+	  	}
+	  	var shortcuts = $(".shortcut");
+	  	for(var i=0;i<shortcuts.length;i++) {
+	  		self.setShortcut(shortcuts[i]);
+	  	}
+	  },
+	  setShortcut : function(app) {
+	  	$(app).bind("click", function() {
+	  		var from, to, dlg = document.getElementById($(this).attr("relId")), state;
+	  		var proxy = $("#id-proxy");
+	  		if(dlg.style.visibility == "hidden") {
+		  		from = DBapp.Css.getBox(app);
+		  		to = DBapp.Css.getBox(dlg);
+		  		state = "visible";
+		  	} else {
+		  		from = DBapp.Css.getBox(dlg);
+		  		to = DBapp.Css.getBox(app);
+		  		state = "hidden";
+		  	}
+	  		proxy.css({
+	  			visibility : "visible",
+	  			width : from.width,
+	  			height : from.height
+	  		});
+	  		DBapp.Css.setXY(proxy.get(0), [from.x, from.y]);
+	  		proxy.animate({
+    			left : to.x,
+    			top : to.x,
+    			width : to.width,
+    			height : to.height
+    		}, 0.35 * 1000, undefined, function() {
+    			proxy.css("visibility", "hidden");
+    			dlg.style.visibility = state;
+    		});
+	    });
+	  }
+	};
+	page.init();
+});
+</script>
+</html>

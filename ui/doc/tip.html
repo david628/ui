@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Doc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/dbapp.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/default.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/normal.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/dark.css"/>
+    <style type="text/css">
+    </style>
+  </head>
+  <body class="body-bg" style="background: #262D33;">
+    <!-- <div id="id-app">
+      <layout-header></layout-header>
+	    <layout-left></layout-left>
+	    <layout-bottom></layout-bottom>
+	    <div id="id-layout-right" class="layout-right">
+	    </div>
+    </div> -->
+    <div id="id-layout-top" class="layout-top"></div>
+    <div id="id-layout-left" class="layout-left cls-accordion-menu"></div>
+    <div id="id-layout-bottm" class="layout-bottm"></div>
+    <div id="id-layout-right" class="layout-right">
+      <div class="cls-box normal">
+	      <div class="layout-title"> 
+          <a class="layout-title-text">
+            <a id="id-btn" class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">id-btn</a>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+$("#id-btn").click(function() {
+  var self = this;
+  DBapp.showProcessing(self);
+  setTimeout(function() {
+    DBapp.hideProcessing(self);
+  }, 2000);
+  
+});
+</code>
+</pre>
+          </div>
+        </div>
+      </div>
+      <div class="cls-box normal">
+	      <div class="layout-title"> 
+          <a class="layout-title-text">
+            <a id="id-te0" class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">验证(id-te0)</a>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+$("#id-te0").click(function() {
+  DBapp.ui.success("操作成功");
+});
+</code>
+</pre>
+          </div>
+        </div>
+      </div>
+      
+      <div class="cls-box normal">
+	      <div class="layout-title"> 
+          <a class="layout-title-text">
+            <a id="id-te1" class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">验证(id-te1)</a>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+$("#id-te1").click(function() {
+  DBapp.ui.fail("操作失败");
+});
+</code>
+</pre>
+          </div>
+        </div>
+      </div>
+      <div class="cls-box normal">
+	      <div class="layout-title"> 
+          <input id="id-in0"class="cls-form-field" type="text" value="id-in0"/>
+          <a id="id-test0" class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">验证(id-test0)</a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+$("#id-test0").click(function() {
+  DBapp.ui.error("id-in0", "不能为空");//第一参数：参照物Dom，第二参数：提示内容
+});
+</code>
+</pre>
+          </div>
+        </div>
+      </div>
+      
+      <div class="cls-box normal">
+	      <div class="layout-title"> 
+          <a class="layout-title-text">
+            <a id="id-test" class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">id-test</a>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+var tip = new DBapp.ui.Tip({
+  position : "left",//提示方向(left, top, right, bottom)
+  msg : "2015",//提示内容
+  distance : 10
+});
+jQuery("#id-test").hover(function() {
+  tip.show(this, new Date(), "right");//第一参数：参照物Dom，第二参数：显示内容，第三参数：显示的位置
+}, function() {
+  tip.hide();//隐藏
+});
+</code>
+</pre>
+          </div>
+        </div>
+      </div>
+      <div class="cls-box normal">
+	      <div class="layout-title"> 
+          <a class="layout-title-text">
+            <a id="id-test1" class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">id-test1</a>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+var tip = new DBapp.ui.Tip({
+  position : "left",//提示方向(left, top, right, bottom)
+  msg : "2015",//提示内容
+  distance : 10
+});
+jQuery("#id-test1").hover(function() {
+  tip.show(this, new Date(), "left");//第一参数：参照物Dom，第二参数：显示内容，第三参数：显示的位置
+}, function() {
+  tip.hide();//隐藏
+});
+</code>
+</pre>
+          </div>
+        </div>
+      </div>
+      <div class="cls-box normal">
+	      <div class="layout-title"> 
+          <a class="layout-title-text">
+            <a id="id-test2" class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">id-test2</a>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+var tip = new DBapp.ui.Tip({
+  position : "left",//提示方向(left, top, right, bottom)
+  msg : "2015",//提示内容
+  distance : 10
+});
+jQuery("#id-test2").hover(function() {
+  tip.show(this, new Date(), "top");//第一参数：参照物Dom，第二参数：显示内容，第三参数：显示的位置
+}, function() {
+  tip.hide();//隐藏
+});
+</code>
+</pre>
+          </div>
+        </div>
+      </div>
+      <div class="cls-box normal">
+	      <div class="layout-title"> 
+          <a class="layout-title-text">
+            <a id="id-test3" class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">id-test3</a>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+var tip = new DBapp.ui.Tip({
+  position : "left",//提示方向(left, top, right, bottom)
+  msg : "2015",//提示内容
+  distance : 10
+});
+jQuery("#id-test3").hover(function() {
+  tip.show(this, new Date(), "bottom");//第一参数：参照物Dom，第二参数：显示内容，第三参数：显示的位置
+}, function() {
+  tip.hide();//隐藏
+});
+</code>
+</pre>
+          </div>
+        </div>
+      </div>
+      
+    </div>  
+    <script type="text/javascript" src="../js/lang.js"></script>
+    <script type="text/javascript" src="../js/setting.js"></script>
+    <script type="text/javascript" src="../js/info.js"></script>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/dbapp.js"></script>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript" src="../js/base.js"></script>
+    <script type="text/javascript" src="js/tip.js"></script>
+    <link rel="stylesheet" type="text/css" href="../js/rainbow/css/monokai.css"/>
+    <script type="text/javascript" src="../js/rainbow/js/rainbow-custom.min.js"></script>
+  </body>
+</html>

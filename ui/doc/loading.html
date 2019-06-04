@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Doc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/dbapp.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/default.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/normal.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/dark.css"/>
+    <style type="text/css">
+    </style>
+  </head>
+  <body class="body-bg" style="background: #262D33;">
+    <!-- <div id="id-app">
+      <layout-header></layout-header>
+	    <layout-left></layout-left>
+	    <layout-bottom></layout-bottom>
+	    <div id="id-layout-right" class="layout-right">
+	    
+	    </div>
+    </div> -->
+    <div id="id-layout-top" class="layout-top"></div>
+    <div id="id-layout-left" class="layout-left cls-accordion-menu"></div>
+    <div id="id-layout-bottm" class="layout-bottm"></div>
+    <div id="id-layout-right" class="layout-right">
+      <!-- <div style="margin: 30px;">
+        <a class="button" href="javascript:;" style="color: #fff;background: rgb(158, 97, 33);">Dialog</a>
+      </div> -->
+      <div class="cls-box normal">
+	      <div class="layout-title"> 
+          <a class="layout-title-text">
+            <a class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">运行</a>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+var loading = new DBapp.ui.Loading({
+  //renderTo: document.body,
+  msg: '正在加载，请稍候...'
+});
+loading.show();
+setTimeout(function() {
+  loading.hide();
+}, 2000);
+</code>
+</pre>
+          </div>
+        </div>
+      </div>
+      <div class="cls-box normal">
+	      <div class="layout-title"> 
+          <a class="layout-title-text">
+            <a class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">运行</a>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+var loading = new DBapp.ui.Mask({
+  renderTo: document.body,
+  msg: '正在加载，请稍候...'
+});
+loading.show();
+setTimeout(function() {
+  loading.hide();
+}, 2000);
+</code>
+</pre>
+          </div>
+        </div>
+      </div>
+      
+    </div>  
+    <script type="text/javascript" src="../js/lang.js"></script>
+    <script type="text/javascript" src="../js/setting.js"></script>
+    <script type="text/javascript" src="../js/info.js"></script>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/dbapp.js"></script>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript" src="../js/base.js"></script>
+    <script type="text/javascript" src="js/loading.js"></script>
+    <link rel="stylesheet" type="text/css" href="../js/rainbow/css/monokai.css"/>
+    <script type="text/javascript" src="../js/rainbow/js/rainbow-custom.min.js"></script>
+  </body>
+</html>

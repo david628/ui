@@ -1,0 +1,241 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+  margin:0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+body {
+  font-family: verdana, Arial;
+  font-size: 12px;
+  line-height: 1;
+  background: #fff;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+a {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  color: #6c6c6c;
+}
+a:hover {
+  color: #f40;
+  transition: color .2s ease-in-out;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.clearfix  { 
+	*zoom: 1;
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0px;
+	font-size: 0px;
+	clear: both;
+	visibility: hidden;
+}
+.app-chanelmenu-wrap {
+	width: 240px;
+  height: 528px;
+  /* border: 1px solid #eee;
+  border-top: none;
+  border-bottom: none;
+  border-right: none; */
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  position: relative;
+}
+.app-chanelmenu-con {}
+.app-chanelmenu-con:hover .app-chanelmenu-inner {
+  border-bottom-color: #f44b3b;
+  background: #f44b3b;
+}
+.app-chanelmenu-con:hover .app-chanelmenu-bar {
+	background: #f44b3b;
+}
+.app-chanelmenu-con:hover .app-chanelmenu-bar a {
+	color: #fff;
+}
+.app-chanelmenu-con:hover .app-chanelmenu-tags-wrap {
+  padding-right: 10px;
+  z-index: 101;
+}
+.app-chanelmenu-con:hover .app-chanelmenu-list {
+	display: block;
+}
+.app-chanelmenu-con:hover .app-chanelmenu-inner {
+	border-right: none;
+}
+.app-chanelmenu-inner {
+  height: 61px;
+  padding-left: 45px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #eee;
+  background-color: #fff;
+}
+.app-chanelmenu-nav {
+  width: 100%;
+}
+.app-chanelmenu-bar {
+  width: 45px;
+  height: 65px;
+  float: left;
+  margin-left: -45px;
+  margin-top: -2px;
+  background: #eee;
+}
+.app-chanelmenu-bar a {
+  margin-top: 10px;
+  font-weight: 700;
+  display: block;
+  height: 18px;
+  text-align: center;
+}
+.app-chanelmenu-tags-wrap {
+  width: 100%;
+  height: 62px;
+  position: relative;
+  overflow: hidden;
+  float: left;
+  /* padding-right: 10px; */
+  z-index: 101;
+  background-color: #fff;
+}
+.app-chanelmenu-tags-wrap a {
+  margin: 5px 7px;
+  padding: 4px 0;
+  float: left;
+  white-space: nowrap;
+}
+.app-chanelmenu-list {
+  position: absolute;
+  right: -488px;
+  top: 0;
+  overflow: hidden;
+  height: 484px;
+  width: 444px;
+  padding: 20px;
+  border: 2px solid #f44b3b;
+  background: #fff;
+  opacity: .99;
+  z-index: 100;
+  display: none;
+}
+.app-chanelmenu-list-tags-con {
+	width: 100%;
+  height: 70px;
+  margin-bottom: 13px;
+  overflow: hidden;
+}
+.app-chanelmenu-list-tags-title {
+  margin-bottom: 5px;
+}
+.app-chanelmenu-list-tags-title .sub-tags-title-icon .ec {
+	width: 4px;
+  height: 4px;
+  position: absolute;
+  left: -2px;
+  top: 4px;
+  z-index: 10;
+  border: 1px solid #ff0000;
+  border-radius: 3px;
+  display: inline;
+  background: #fff;
+}
+.arrow {
+  width: 0;
+  height: 0;
+}
+.arrow-left {
+  border-right-style: solid;
+  border-right-color: #e8e8e8;
+  position: relative;
+}
+.arrow, .arrow-left em {
+  border-width: 6px;
+  font-size: 0;
+  line-height: 0;
+  display: inline-block;
+  vertical-align: -2px;
+  border: 0 dashed transparent;
+}
+.arrow-left em {
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: -7px;
+  top: -8px;
+  border-width: 8px;
+  border-right-style: solid;
+  border-right-color: #fff;
+}
+.app-chanelmenu-tags-icon {
+  color: #ff0000;
+}
+.app-chanelmenu-tags-icon .arrow-left {
+	position: absolute;
+  left: -17px;
+  top: -1px;
+  z-index: 1;
+  border-right-color: #ff0000;
+  border-width: 8px;
+}
+.app-chanelmenu-list-tags-title .app-chanelmenu-tags-icon {
+  position: relative;
+  border: 1px solid red;
+  height: 14px;
+  line-height: 14px;
+  display: inline-block;
+  padding: 0 5px;
+  margin-left: 14px;
+  font-weight: 400;
+  text-decoration: none;
+}
+.app-chanelmenu-list-tags-title .cr {
+  position: absolute;
+  left: -2px;
+  top: 4px;
+  border: 1px solid red;
+  border-radius: 3px;
+  width: 4px;
+  height: 4px;
+  display: inline;
+  background: #fff;
+  z-index: 10;
+}
+.app-chanelmenu-tags-underline {
+  height: 1px;
+  background-image: -webkit-linear-gradient(360deg,#ff9f64,#fff);
+}
+.app-chanelmenu-tags a {
+  margin: 5px 14px 0 0;
+  float: left;
+  white-space: nowrap;
+  padding: 4px 0;
+  cursor: pointer;
+}

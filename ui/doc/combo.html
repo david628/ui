@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Doc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/dbapp.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/default.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/normal.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/dark.css"/>
+    <style type="text/css">
+    </style>
+  </head>
+  <body class="body-bg" style="background: #262D33;">
+    <!-- <div id="id-app">
+      <layout-header></layout-header>
+	    <layout-left></layout-left>
+	    <layout-bottom></layout-bottom>
+	    <div id="id-layout-right" class="layout-right">
+	    
+	    </div>
+    </div> -->
+    <div id="id-layout-top" class="layout-top"></div>
+    <div id="id-layout-left" class="layout-left cls-accordion-menu"></div>
+    <div id="id-layout-bottm" class="layout-bottm"></div>
+    <div id="id-layout-right" class="layout-right">
+      <div class="cls-box normal">
+	      <div class="layout-title" style="height: 50px;background: #525252;"> 
+          <a class="layout-title-text">
+            <div>
+              <select id="id-select0"></select>
+            </div>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+var select = new DBapp.ui.Combo("id-select0", {
+  width: 160,//宽度
+  isClear: true,//清除按钮
+  displayField: "username",//下拉列表显示
+  valueField: "uid",//下拉列表对应显示的值
+  data: [{//数据源
+    uid: 0,
+    username: "张三"
+  },{
+    uid: 1,
+    username: "李四"
+  },{
+    uid: 2,
+    username: "小明"
+  }]
+});
+</code>
+</pre>       	  
+       	  </div>
+     	  </div>
+      </div>
+      
+      <div class="cls-box normal">
+	      <div class="layout-title" style="height: 50px;background: #525252;"> 
+          <a class="layout-title-text">
+            <div>
+              <select id="id-select1"></select>
+            </div>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+var select = new DBapp.ui.Combo("id-select1", {
+  width: 260,//宽度
+  isClear: true,//清除按钮
+  multSelect: true,//多选模式
+  displayField: "username",//下拉列表显示
+  valueField: "uid"//下拉列表对应显示的值
+});
+var store = [{//数据源
+  uid: 0,
+  username: "张三"
+},{
+  uid: 1,
+  username: "李四"
+},{
+  uid: 2,
+  username: "小明"
+}];
+select.load(store);
+</code>
+</pre>       	  
+       	  </div>
+     	  </div>
+      </div>     
+      <div class="cls-box normal">
+	      <div class="layout-title" style="height: 50px;background: #525252;"> 
+          <a class="layout-title-text">
+            <div>
+              <select id="id-select3"></select>
+            </div>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+var select = new DBapp.ui.Combo("id-select3", {
+  width: 300,//宽度
+  listWidth: 600,//下拉框的宽度
+  isClear: true,//清除按钮
+  //multSelect: true,//多选模式
+  displayField: "user",//下拉列表显示
+  valueField: "id",//下拉列表对应显示的值
+  afterInitList: function() {
+    var w = this;
+    if(!w.grid) {
+      w.list.innerHTML = '<div class="grid">sdfs</div><div class="grid-pageView"></div>';
+      w.grid = new DBapp.ui.Grid({
+        renderTo: $(w.list).find(".grid"),
+        isNumber: true,
+        //isCheckbox: true,
+        //exchange: true,
+        pageView: {
+          renderTo: $(w.list).find(".grid-pageView"),
+          param: {
+            offset: 0,
+            limit: 10
+          },
+          callback: function() {
+            
+          }
+        },
+        cm: [{
+          header: "时间",
+          width: 248,
+          align: "left",
+          dataStore: "time",
+          renderFn: function(v, ds) {
+            return '<span>' + new Date(parseInt(v, 10)).toLocaleString() + '</span>';//自定义列显示，因为配置了dataStore所以进行了xss处理
+          }
+        }, {
+          header: "日志等级",
+          width: 90,
+          align: "left",
+          dataStore: "level"
+        }, {
+          header: "用户",
+          width: 90,
+          align: "left",
+          editType: "text",
+          dataStore: "user"
+        }, {
+          header: "操作",
+          width: 90,
+          align: "center",
+          //dataStore: "result",
+          renderFn: function() {
+            return '<a class="button del" style="float: none;">删除</a>';//自定义列显示，因为没有配置了dataStore，所以不会进行了xss处理
+          }
+        }]
+      });
+      w.grid.onRowClick = function(e, target, opt) {
+        var ds = w.grid.getData(opt.row);
+        w.setValue(ds["id"], ds["user"]);
+        w.collapse();
+      }
+    }
+    var json = {
+      "total": 4,
+      "ret": true,
+      "log": [{
+        "id": "0",
+        "time": "1485338655",
+        "level": "2",
+        "deleted": 0,
+        "timeStr": "2017-01-25 18:04:15",
+        "levelStr": "一般消息",
+        "type": "0",
+        "source": "system",
+        "user": "admin",
+        "userIp": "127.0.0.1",
+        "content": "用户登录",
+        "result": "0",
+        "resultStr": "成功",
+        "typeStr": "服务端",
+        "cvsString": "2017-01-25 18:04:15, 一般消息, 服务端, system, admin, 127.0.0.1, 用户登录,成功"
+      },{
+        "id": "1",
+        "time": "1485337175",
+        "level": "2",
+        "deleted": 0,
+        "timeStr": "2017-01-25 17:39:35",
+        "levelStr": "一般消息",
+        "type": "0",
+        "source": "system",
+        "user": "guest",
+        "userIp": "127.0.0.1",
+        "content": "用户登录",
+        "result": "0",
+        "resultStr": "成功",
+        "typeStr": "服务端",
+        "cvsString": "2017-01-25 17:39:35, 一般消息, 服务端, system, admin, 127.0.0.1, 用户登录,成功"
+      },{
+        "id": "2",
+        "time": "1485270840",
+        "level": "2",
+        "deleted": 0,
+        "timeStr": "2017-01-24 23:14:00",
+        "levelStr": "一般消息",
+        "type": "0",
+        "source": "system",
+        "user": "audit",
+        "userIp": "127.0.0.1",
+        "content": "用户登录",
+        "result": "0",
+        "resultStr": "成功",
+        "typeStr": "服务端",
+        "cvsString": "2017-01-24 23:14:00, 一般消息, 服务端, system, admin, 127.0.0.1, 用户登录,成功"
+      },{
+        "id": "3",
+        "time": "1485248721",
+        "level": "2",
+        "deleted": 0,
+        "timeStr": "2017-01-24 17:05:21",
+        "levelStr": "一般消息",
+        "type": "0",
+        "source": "system",
+        "user": "test",
+        "userIp": "127.0.0.1",
+        "content": "用户登录",
+        "result": "0",
+        "resultStr": "成功",
+        "typeStr": "服务端",
+        "cvsString": "2017-01-24 17:05:21, 一般消息, 服务端, system, admin, 127.0.0.1, 用户登录,成功"
+      }]
+    };
+    this.grid.load(json['log'] || [], json['total'] || 0);
+  }
+});
+var store = [{//数据源
+  uid: 0,
+  username: "张三"
+},{
+  uid: 1,
+  username: "李四"
+},{
+  uid: 2,
+  username: "小明"
+}];
+select.load(store);
+</code>
+</pre>       	  
+       	  </div>
+     	  </div>
+      </div>
+      <div class="cls-box normal">
+	      <div class="layout-title" style="height: 50px;background: #525252;"> 
+          <a class="layout-title-text">
+            <div>
+              <select id="id-select4"></select>
+            </div>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+var select = new DBapp.ui.Combo("id-select4", {
+  width: 400,//宽度
+  listWidth: 600,//下拉框的宽度
+  isClear: true,//清除按钮
+  multSelect: true,//多选模式
+  displayField: "user",//下拉列表显示
+  valueField: "id",//下拉列表对应显示的值
+  afterInitList: function() {
+    var w = this;
+    if(!w.grid) {
+      w.list.innerHTML = '<div class="grid">sdfs</div><div class="grid-pageView"></div>';
+      w.grid = new DBapp.ui.Grid({
+        renderTo: $(w.list).find(".grid"),
+        isNumber: true,
+        //isCheckbox: true,
+        //exchange: true,
+        pageView: {
+          renderTo: $(w.list).find(".grid-pageView"),
+          param: {
+            offset: 0,
+            limit: 10
+          },
+          callback: function() {
+            
+          }
+        },
+        cm: [{
+          header: "时间",
+          width: 248,
+          align: "left",
+          dataStore: "time",
+          renderFn: function(v, ds) {
+            return '<span>' + new Date(parseInt(v, 10)).toLocaleString() + '</span>';//自定义列显示，因为配置了dataStore所以进行了xss处理
+          }
+        }, {
+          header: "日志等级",
+          width: 90,
+          align: "left",
+          dataStore: "level"
+        }, {
+          header: "用户",
+          width: 90,
+          align: "left",
+          editType: "text",
+          dataStore: "user"
+        }, {
+          header: "操作",
+          width: 90,
+          align: "center",
+          //dataStore: "result",
+          renderFn: function() {
+            return '<a class="button del" style="float: none;">删除</a>';//自定义列显示，因为没有配置了dataStore，所以不会进行了xss处理
+          }
+        }]
+      });
+      w.grid.onRowClick = function(e, target, opt) {
+        var ds = w.grid.getData(opt.row);
+        w.setValue(ds["id"], ds["user"]);
+        //w.collapse();
+      }
+    }
+    var json = {
+      "total": 4,
+      "ret": true,
+      "log": [{
+        "id": "0",
+        "time": "1485338655",
+        "level": "2",
+        "deleted": 0,
+        "timeStr": "2017-01-25 18:04:15",
+        "levelStr": "一般消息",
+        "type": "0",
+        "source": "system",
+        "user": "admin",
+        "userIp": "127.0.0.1",
+        "content": "用户登录",
+        "result": "0",
+        "resultStr": "成功",
+        "typeStr": "服务端",
+        "cvsString": "2017-01-25 18:04:15, 一般消息, 服务端, system, admin, 127.0.0.1, 用户登录,成功"
+      },{
+        "id": "1",
+        "time": "1485337175",
+        "level": "2",
+        "deleted": 0,
+        "timeStr": "2017-01-25 17:39:35",
+        "levelStr": "一般消息",
+        "type": "0",
+        "source": "system",
+        "user": "guest",
+        "userIp": "127.0.0.1",
+        "content": "用户登录",
+        "result": "0",
+        "resultStr": "成功",
+        "typeStr": "服务端",
+        "cvsString": "2017-01-25 17:39:35, 一般消息, 服务端, system, admin, 127.0.0.1, 用户登录,成功"
+      },{
+        "id": "2",
+        "time": "1485270840",
+        "level": "2",
+        "deleted": 0,
+        "timeStr": "2017-01-24 23:14:00",
+        "levelStr": "一般消息",
+        "type": "0",
+        "source": "system",
+        "user": "audit",
+        "userIp": "127.0.0.1",
+        "content": "用户登录",
+        "result": "0",
+        "resultStr": "成功",
+        "typeStr": "服务端",
+        "cvsString": "2017-01-24 23:14:00, 一般消息, 服务端, system, admin, 127.0.0.1, 用户登录,成功"
+      },{
+        "id": "3",
+        "time": "1485248721",
+        "level": "2",
+        "deleted": 0,
+        "timeStr": "2017-01-24 17:05:21",
+        "levelStr": "一般消息",
+        "type": "0",
+        "source": "system",
+        "user": "test",
+        "userIp": "127.0.0.1",
+        "content": "用户登录",
+        "result": "0",
+        "resultStr": "成功",
+        "typeStr": "服务端",
+        "cvsString": "2017-01-24 17:05:21, 一般消息, 服务端, system, admin, 127.0.0.1, 用户登录,成功"
+      }]
+    };
+    this.grid.load(json['log'] || [], json['total'] || 0);
+  }
+});
+var store = [{//数据源
+  uid: 0,
+  username: "张三"
+},{
+  uid: 1,
+  username: "李四"
+},{
+  uid: 2,
+  username: "小明"
+}];
+select.load(store);
+</code>
+</pre>       	  
+       	  </div>
+     	  </div>
+      </div>
+      
+    </div>  
+    <script type="text/javascript" src="../js/lang.js"></script>
+    <script type="text/javascript" src="../js/setting.js"></script>
+    <script type="text/javascript" src="../js/info.js"></script>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/dbapp.js"></script>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript" src="../js/base.js"></script>
+    <script type="text/javascript" src="js/combo.js"></script>
+    <link rel="stylesheet" type="text/css" href="../js/rainbow/css/monokai.css"/>
+    <script type="text/javascript" src="../js/rainbow/js/rainbow-custom.min.js"></script>
+  </body>
+</html>

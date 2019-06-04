@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Doc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/dbapp.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/default.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/normal.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/dark.css"/>
+    <style type="text/css">
+    .cls-waterfall .cls-waterfall-ul .cls-waterfall-li {
+      box-shadow: 0 2px 8px rgba(0,0,0,.5);
+      -moz-box-shadow: 0 2px 8px rgba(0,0,0,.5);
+      -webkit-box-shadow: 0 2px 8px rgba(0,0,0,.5);
+    }
+    </style>
+  </head>
+  <body class="body-bg" style="background: #262D33;">
+    <!-- <div id="id-app">
+      <layout-header></layout-header>
+	    <layout-left></layout-left>
+	    <layout-bottom></layout-bottom>
+	    <div id="id-layout-right" class="layout-right">
+	    
+	    </div>
+    </div> -->
+    <div id="id-layout-top" class="layout-top"></div>
+    <div id="id-layout-left" class="layout-left cls-accordion-menu"></div>
+    <div id="id-layout-bottm" class="layout-bottm"></div>
+    <div id="id-layout-right" class="layout-right">
+      <!-- <div style="margin: 30px;">
+        <a class="button" href="javascript:;" style="color: #fff;background: rgb(158, 97, 33);">Dialog</a>
+      </div> -->
+      <div class="cls-box normal">
+	      <div> 
+	        <div id="id-wf"></div>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+var json = {
+  success : true,
+  total : 15,
+  data : [{
+    id : "0",
+    name : "",
+    img : "../images/waterfall/0.jpg"
+  }, {
+    id : "1",
+    name : "",
+    img : "../images/waterfall/1.jpg"
+  }, {
+    id : "2",
+    name : "",
+    img : "../images/waterfall/2.jpg"
+  }, {
+    id : "3",
+    name : "",
+    img : "../images/waterfall/3.jpg"
+  }, {
+    id : "4",
+    name : "",
+    img : "../images/waterfall/4.jpg"
+  }, {
+    id : "5",
+    name : "",
+    img : "../images/waterfall/5.jpg"
+  }, {
+    id : "6",
+    name : "",
+    img : "../images/waterfall/6.jpg"
+  }, {
+    id : "7",
+    name : "",
+    img : "../images/waterfall/7.jpg"
+  }, {
+    id : "8",
+    name : "",
+    img : "../images/waterfall/8.jpg"
+  }, {
+    id : "9",
+    name : "",
+    img : "../images/waterfall/9.jpg"
+  }, {
+    id : "10",
+    name : "",
+    img : "../images/waterfall/10.jpg"
+  }, {
+    id : "11",
+    name : "",
+    img : "../images/waterfall/11.jpg"
+  }, {
+    id : "12",
+    name : "",
+    img : "../images/waterfall/12.jpg"
+  }, {
+    id : "13",
+    name : "",
+    img : "../images/waterfall/13.jpg"
+  }, {
+    id : "14",
+    name : "",
+    img : "../images/waterfall/14.jpg"
+  }, {
+    id : "15",
+    name : "",
+    img : "../images/waterfall/15.jpg"
+  }, {
+    id : "16",
+    name : "",
+    img : "../images/waterfall/16.jpg"
+  }, {
+    id : "17",
+    name : "",
+    img : "../images/waterfall/17.jpg"
+  }, {
+    id : "18",
+    name : "",
+    img : "../images/waterfall/18.jpg"
+  }, {
+    id : "19",
+    name : "",
+    img : "../images/waterfall/19.jpg"
+  }, {
+    id : "20",
+    name : "",
+    img : "../images/waterfall/20.jpg"
+  }, {
+    id : "21",
+    name : "",
+    img : "../images/waterfall/21.jpg"
+  }, {
+    id : "22",
+    name : "",
+    img : "../images/waterfall/22.jpg"
+  }, {
+    id : "23",
+    name : "",
+    img : "../images/waterfall/23.jpg"
+  }, {
+    id : "24",
+    name : "",
+    img : "../images/waterfall/24.jpg"
+  }, {
+    id : "25",
+    name : "",
+    img : "../images/waterfall/0.jpg"
+  }, {
+    id : "26",
+    name : "",
+    img : "../images/waterfall/1.jpg"
+  }, {
+    id : "27",
+    name : "",
+    img : "../images/waterfall/2.jpg"
+  }, {
+    id : "28",
+    name : "",
+    img : "../images/waterfall/3.jpg"
+  }, {
+    id : "29",
+    name : "",
+    img : "../images/waterfall/4.jpg"
+  }, {
+    id : "30",
+    name : "",
+    img : "../images/waterfall/5.jpg"
+  }, {
+    id : "31",
+    name : "",
+    img : "../images/waterfall/6.jpg"
+  }, {
+    id : "32",
+    name : "",
+    img : "../images/waterfall/7.jpg"
+  }, {
+    id : "33",
+    name : "",
+    img : "../images/waterfall/8.jpg"
+  }, {
+    id : "34",
+    name : "",
+    img : "../images/waterfall/9.jpg"
+  }, {
+    id : "35",
+    name : "",
+    img : "../images/waterfall/10.jpg"
+  }, {
+    id : "36",
+    name : "",
+    img : "../images/waterfall/11.jpg"
+  }, {
+    id : "37",
+    name : "",
+    img : "../images/waterfall/12.jpg"
+  }, {
+    id : "38",
+    name : "",
+    img : "../images/waterfall/13.jpg"
+  }, {
+    id : "39",
+    name : "",
+    img : "../images/waterfall/14.jpg"
+  }, {
+    id : "40",
+    name : "",
+    img : "../images/waterfall/15.jpg"
+  }, {
+    id : "41",
+    name : "",
+    img : "../images/waterfall/16.jpg"
+  }, {
+    id : "42",
+    name : "",
+    img : "../images/waterfall/17.jpg"
+  }]
+};
+var wf;
+if(!wf) {
+  wf = new DBapp.ui.Waterfall({
+    renderTo: "id-wf",
+    //wrapWidth: 960,
+    width: 220,
+    splitWidth: 5,
+    paddingWidth : 5,
+    loadBtn: {},
+    pageView: {
+      param: {
+        offset: 0,
+        limit: 20
+      },
+      callback: function(page, o) {
+        
+      }
+    },
+    getTemplate: function(dom, ds) {
+      dom.innerHTML = '<img class="wf-img" alt="" src="' + ds['img'] + '" style="width: ' + wf.width + 'px;">';
+    }
+  });
+}
+wf.load(json["data"] || [], json["total"] || 0);
+</code>
+</pre>
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>  
+    <script type="text/javascript" src="../js/lang.js"></script>
+    <script type="text/javascript" src="../js/setting.js"></script>
+    <script type="text/javascript" src="../js/info.js"></script>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/dbapp.js"></script>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript" src="../js/base.js"></script>
+    <script type="text/javascript" src="js/waterfall.js"></script>
+    <link rel="stylesheet" type="text/css" href="../js/rainbow/css/monokai.css"/>
+    <script type="text/javascript" src="../js/rainbow/js/rainbow-custom.min.js"></script>
+  </body>
+</html>

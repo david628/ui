@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Doc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/dbapp.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/default.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/normal.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/dark.css"/>
+    <style type="text/css">
+    .left {
+      width: 100px;
+      height: 30px;
+      background: green;
+    }
+    .right {
+      width: 200px;
+      height: 60px;
+      background: #00B7EE;
+    }
+    .normal .layout-title {
+      display: none;
+    }
+    </style>
+  </head>
+  <body class="body-bg" style="background: #262D33;">
+    <!-- <div id="id-app">
+      <layout-header></layout-header>
+	    <layout-left></layout-left>
+	    <layout-bottom></layout-bottom>
+	    <div id="id-layout-right" class="layout-right">
+	    
+	    </div>
+    </div> -->
+    <div id="id-layout-top" class="layout-top"></div>
+    <div id="id-layout-left" class="layout-left cls-accordion-menu"></div>
+    <div id="id-layout-bottm" class="layout-bottm"></div>
+    <div id="id-layout-right" class="layout-right">
+      <div class="cls-box normal">
+        <div class="layout-title"> 
+          <a class="layout-title-text">
+            <a class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">运行</a>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+DBapp.Css.alignTo("id-left", "id-right", 'c-c');
+</code>
+</pre>
+          </div>
+          <div>
+	          <div id="id-left" class="left">id-left</div>
+	          <div id="id-right" class="right">id-right</div>
+	        </div>
+        </div>
+      </div>
+      <div class="cls-box normal">
+        <div class="layout-title"> 
+          <a class="layout-title-text">
+            <a class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">运行</a>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+DBapp.Css.alignTo("id-left5", "id-right5", 'r-l');
+</code>
+</pre>
+          </div>
+          <div>
+	          <div id="id-left5" class="left">id-left5</div>
+	          <div id="id-right5" class="right">id-right5</div>
+	        </div>
+        </div>
+      </div>
+      <div class="cls-box normal">
+        <div class="layout-title"> 
+          <a class="layout-title-text">
+            <a class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">运行</a>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+DBapp.Css.alignTo("id-left6", "id-right6", 'b-t');
+</code>
+</pre>
+          </div>
+          <div>
+	          <div id="id-left6" class="left">id-left6</div>
+	          <div id="id-right6" class="right">id-right6</div>
+	        </div>
+        </div>
+      </div>
+      <div class="cls-box normal">
+        <div class="layout-title"> 
+          <a class="layout-title-text">
+            <a class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">运行</a>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+DBapp.Css.alignTo("id-left7", "id-right7", 'l-r');
+</code>
+</pre>
+          </div>
+          <div>
+	          <div id="id-left7" class="left">id-left7</div>
+	          <div id="id-right7" class="right">id-right7</div>
+	        </div>
+        </div>
+      </div>
+      <div class="cls-box normal">
+        <div class="layout-title"> 
+          <a class="layout-title-text">
+            <a class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">运行</a>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+DBapp.Css.alignTo("id-left8", "id-right8", 't-b');
+</code>
+</pre>
+          </div>
+          <div>
+	          <div id="id-left8" class="left">id-left8</div>
+	          <div id="id-right8" class="right">id-right8</div>
+	        </div>
+        </div>
+      </div>
+      <div class="cls-box normal">
+        <div class="layout-title"> 
+          <a class="layout-title-text">
+            <a class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">运行</a>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+DBapp.Css.alignTo("id-left1", "id-right1", 'tl-bl');
+</code>
+</pre>
+          </div>
+          <div>
+	          <div id="id-left1" class="left">id-left1</div>
+	          <div id="id-right1" class="right">id-right1</div>
+	        </div>
+        </div>
+      </div>
+      <div class="cls-box normal">
+        <div class="layout-title"> 
+          <a class="layout-title-text">
+            <a class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">运行</a>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+DBapp.Css.alignTo("id-left2", "id-right2", 'br-br');
+</code>
+</pre>
+          </div>
+          <div>
+	          <div id="id-left2" class="left">id-left2</div>
+	          <div id="id-right2" class="right">id-right2</div>
+	        </div>
+        </div>
+      </div>
+      <div class="cls-box normal">
+        <div class="layout-title"> 
+          <a class="layout-title-text">
+            <a class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">运行</a>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+DBapp.Css.alignTo("id-left3", "id-right3", 'bl-bl');
+</code>
+</pre>
+          </div>
+          <div>
+	          <div id="id-left3" class="left">id-left3</div>
+	          <div id="id-right3" class="right">id-right3</div>
+	        </div>
+        </div>
+      </div>
+      <div class="cls-box normal">
+        <div class="layout-title"> 
+          <a class="layout-title-text">
+            <a class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">运行</a>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+DBapp.Css.alignTo("id-left4", "id-right4", 'bl-tl');
+</code>
+</pre>
+          </div>
+          <div>
+	          <div id="id-left4" class="left">id-left4</div>
+	          <div id="id-right4" class="right">id-right4</div>
+	        </div>
+        </div>
+      </div>
+      
+    </div>  
+    <script type="text/javascript" src="../js/lang.js"></script>
+    <script type="text/javascript" src="../js/setting.js"></script>
+    <script type="text/javascript" src="../js/info.js"></script>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/dbapp.js"></script>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript" src="../js/base.js"></script>
+    <script type="text/javascript" src="js/alignTo.js"></script>
+    <link rel="stylesheet" type="text/css" href="../js/rainbow/css/monokai.css"/>
+    <script type="text/javascript" src="../js/rainbow/js/rainbow-custom.min.js"></script>
+  </body>
+</html>

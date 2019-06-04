@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Doc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/dbapp.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/default.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/normal.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/dark.css"/>
+    <style type="text/css">
+    </style>
+  </head>
+  <body class="body-bg" style="background: #262D33;">
+    <!-- <div id="id-app">
+      <layout-header></layout-header>
+	    <layout-left></layout-left>
+	    <layout-bottom></layout-bottom>
+	    <div id="id-layout-right" class="layout-right">
+	    
+	    </div>
+    </div> -->
+    <div id="id-layout-top" class="layout-top"></div>
+    <div id="id-layout-left" class="layout-left cls-accordion-menu"></div>
+    <div id="id-layout-bottm" class="layout-bottm"></div>
+    <div id="id-layout-right" class="layout-right">
+      <!-- <div style="margin: 30px;">
+        <a class="button" href="javascript:;" style="color: #fff;background: rgb(158, 97, 33);">Dialog</a>
+      </div> -->
+      <div class="cls-box normal">
+	      <div class="layout-title"> 
+          <a class="layout-title-text">
+            <a class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">运行</a>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+var dialog = new DBapp.ui.Dialog("id-dlg", {
+  title: '提示',
+  msg: 'Hello'
+});
+dialog.setWidth(500);
+dialog.clearButton();
+dialog.addButton([{
+  text : "确定",//按钮名称
+  cls : 'submit',//按钮样式
+  handle : function(event) {//点击按钮触发方法
+    alert("确定");
+  }
+}, {
+  text : "取消",//按钮名称
+  cls : 'cancel',//按钮样式
+  handle : function(event) {//点击按钮触发方法
+    alert("取消");
+    dialog.hide();
+  }
+}]);
+dialog.show();
+</code>
+</pre>
+            <div class="cls-box-nav" style="margin: 0;color: #666;padding: 5px 10px;">属性</div>
+			      <div class="cls-box properties" style="margin: 10px 0 20px 0;">
+				      <div class="layout-title"> 
+			          <a class="layout-title-text">openAnimationDuration (类型: Number)</a>
+			        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+			        </div>
+			       	<div class="layout-accordion" style="background: #eee;">
+			       	  <div class="layout-accordion-content">
+			            <p>设置弹出对话框时，动画时间.</p>            
+			       	  </div>
+			     	  </div>
+			      </div>
+			      <div class="cls-box properties" style="margin: 10px 0 20px 0;">
+				      <div class="layout-title"> 
+			          <a class="layout-title-text">closeAnimationDuration (类型: Number)</a>
+			        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+			        </div>
+			       	<div class="layout-accordion" style="background: #eee;">
+			       	  <div class="layout-accordion-content">
+			            <p>设置关闭对话框时，动画时间.</p>            
+			       	  </div>
+			     	  </div>
+			      </div>
+			      <div class="cls-box properties" style="margin: 10px 0 20px 0;">
+				      <div class="layout-title"> 
+			          <a class="layout-title-text">openAnimationEffect (类型: String): default-in, rollIn, fadeInLeft</a>
+			        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+			        </div>
+			       	<div class="layout-accordion" style="background: #eee;">
+			       	  <div class="layout-accordion-content">
+			            <p>设置弹出对话框时，动画特效.</p>            
+			       	  </div>
+			     	  </div>
+			      </div>
+			      <div class="cls-box properties" style="margin: 10px 0 20px 0;">
+				      <div class="layout-title"> 
+			          <a class="layout-title-text">openAnimationEffect (类型: String): default-out, rollOut, fadeOutRight</a>
+			        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+			        </div>
+			       	<div class="layout-accordion" style="background: #eee;">
+			       	  <div class="layout-accordion-content">
+			            <p>设置关闭对话框时，动画特效.</p>            
+			       	  </div>
+			     	  </div>
+			      </div>
+			      <div class="cls-box properties" style="margin: 10px 0 20px 0;">
+				      <div class="layout-title"> 
+			          <a class="layout-title-text">autoClose (类型: Boolean): 默认为false</a>
+			        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+			        </div>
+			       	<div class="layout-accordion" style="background: #eee;">
+			       	  <div class="layout-accordion-content">
+			            <p>设置弹出对话框后，是否自动关闭.</p>            
+			       	  </div>
+			     	  </div>
+			      </div>
+			      <div class="cls-box properties" style="margin: 10px 0 20px 0;">
+				      <div class="layout-title"> 
+			          <a class="layout-title-text">buttonAlign (类型: String): left, center, right 默认为false</a>
+			        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+			        </div>
+			       	<div class="layout-accordion" style="background: #eee;">
+			       	  <div class="layout-accordion-content">
+			            <p>设置按钮对齐方式(左，中，右).</p>            
+			       	  </div>
+			     	  </div>
+			      </div>
+			      <div class="cls-box-nav" style="margin: 0;color: #666;padding: 5px 10px;">方法</div>
+			      <div class="cls-box methods" style="margin: 10px 0 20px 0;">
+				      <div class="layout-title"> 
+			          <a class="layout-title-text">setButtonAlign (String pos): void (left, center, right)</a>
+			        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+			        </div>
+			       	<div class="layout-accordion" style="background: #eee;">
+			       	  <div class="layout-accordion-content">
+			            <p>设置按钮对齐方式(左，中，右).</p>
+			       	  </div>
+			     	  </div>
+			      </div>
+			      <div class="cls-box methods" style="margin: 10px 0 20px 0;">
+				      <div class="layout-title"> 
+			          <a class="layout-title-text">setWidth (Number width): void</a>
+			        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+			        </div>
+			       	<div class="layout-accordion" style="background: #eee;">
+			       	  <div class="layout-accordion-content">
+			            <p>设置宽.</p>
+			       	  </div>
+			     	  </div>
+			      </div>
+			      <div class="cls-box methods" style="margin: 10px 0 20px 0;">
+				      <div class="layout-title"> 
+			          <a class="layout-title-text">setHeight (Number height): void</a>
+			        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+			        </div>
+			       	<div class="layout-accordion" style="background: #eee;">
+			       	  <div class="layout-accordion-content">
+			            <p>设置高.</p>
+			       	  </div>
+			     	  </div>
+			      </div>
+			      <div class="cls-box methods" style="margin: 10px 0 20px 0;">
+				      <div class="layout-title"> 
+			          <a class="layout-title-text">setSize (Number width, Number height): void</a>
+			        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+			        </div>
+			       	<div class="layout-accordion" style="background: #eee;">
+			       	  <div class="layout-accordion-content">
+			            <p>设置宽和高.</p>
+			       	  </div>
+			     	  </div>
+			      </div>
+			      <div class="cls-box methods" style="margin: 10px 0 20px 0;">
+				      <div class="layout-title"> 
+			          <a class="layout-title-text">setTitle (String title): void</a>
+			        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+			        </div>
+			       	<div class="layout-accordion" style="background: #eee;">
+			       	  <div class="layout-accordion-content">
+			            <p>设置标题.</p>
+			       	  </div>
+			     	  </div>
+			      </div>
+			      <div class="cls-box methods" style="margin: 10px 0 20px 0;">
+				      <div class="layout-title"> 
+			          <a class="layout-title-text">setContent (String msg): void</a>
+			        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+			        </div>
+			       	<div class="layout-accordion" style="background: #eee;">
+			       	  <div class="layout-accordion-content">
+			            <p>设置内容.</p>
+			       	  </div>
+			     	  </div>
+			      </div>
+			      <div class="cls-box methods" style="margin: 10px 0 20px 0;">
+				      <div class="layout-title"> 
+			          <a class="layout-title-text">clearButton (): void</a>
+			        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+			        </div>
+			       	<div class="layout-accordion" style="background: #eee;">
+			       	  <div class="layout-accordion-content">
+			            <p>清空所有按扭.</p>
+			       	  </div>
+			     	  </div>
+			      </div>
+			      <div class="cls-box methods" style="margin: 10px 0 20px 0;">
+				      <div class="layout-title"> 
+			          <a class="layout-title-text">addButton (Array btns): void</a>
+			        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+			        </div>
+			       	<div class="layout-accordion" style="background: #eee;">
+			       	  <div class="layout-accordion-content">
+			            <p>添加按扭.</p>
+<pre style="border: 0;">
+<code class="language-js">
+var dialog = new DBapp.ui.Dialog("id-dlg", {
+  title: '提示',
+  msg: 'Hello'
+});
+dialog.clearButton();
+dialog.addButton([{
+  text : "确定",//按钮名称
+  cls : 'submit',//按钮样式
+  handle : function(event) {//点击按钮触发方法
+    ...
+  }
+}, {
+  text : "取消",//按钮名称
+  cls : 'cancel',//按钮样式
+  handle : function(event) {//点击按钮触发方法
+    this.hide();
+    if(handle) {
+      ...
+    }
+  }
+}]);
+dialog.show();
+</code>
+</pre>
+			       	  </div>
+			     	  </div>
+			      </div>
+			      <div class="cls-box methods" style="margin: 10px 0 20px 0;">
+				      <div class="layout-title"> 
+			          <a class="layout-title-text">isVisible (): Boolean</a>
+			        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+			        </div>
+			       	<div class="layout-accordion" style="background: #eee;">
+			       	  <div class="layout-accordion-content">
+			            <p>对话框是否为显示/隐藏.</p>
+			       	  </div>
+			     	  </div>
+			      </div>
+			      <div class="cls-box methods" style="margin: 10px 0 20px 0;">
+				      <div class="layout-title"> 
+			          <a class="layout-title-text">show (): void</a>
+			        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+			        </div>
+			       	<div class="layout-accordion" style="background: #eee;">
+			       	  <div class="layout-accordion-content">
+			            <p>显示对话框.</p>
+			       	  </div>
+			     	  </div>
+			      </div>
+			      <div class="cls-box methods" style="margin: 10px 0 20px 0;">
+				      <div class="layout-title"> 
+			          <a class="layout-title-text">hide (): void</a>
+			        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+			        </div>
+			       	<div class="layout-accordion" style="background: #eee;">
+			       	  <div class="layout-accordion-content">
+			            <p>关闭对话框.</p>
+			       	  </div>
+			     	  </div>
+			      </div>
+       	  </div>
+     	  </div>
+      </div>
+      <div class="cls-box normal">
+	      <div class="layout-title"> 
+          <a class="layout-title-text">
+            <a class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">运行</a>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+DBapp.ui.Msg.Alert("提示", "OK", function() {
+  alert("关闭后触发");
+});
+</code>
+</pre>       	  
+       	  </div>
+     	  </div>
+      </div>
+      <div class="cls-box normal">
+	      <div class="layout-title"> 
+          <a class="layout-title-text">
+            <a class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">运行</a>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+DBapp.ui.Msg.Confirm("提示", "OK", function(btn) {
+  if(btn == "yes") {
+    alert("选择是");
+  } else if(btn == "no") {
+    alert("选择否");
+  }
+});
+</code>
+</pre>       	  
+       	  </div>
+     	  </div>
+      </div>
+      <div class="cls-box normal">
+	      <div class="layout-title"> 
+          <a class="layout-title-text">
+            <a class="button" href="javascript:;" style="margin-bottom: 10px;color: #fff;background: rgb(158, 97, 33);">运行</a>
+          </a>
+        	<span class="switch" onclick="javascript:base.accordion(this);"><p class="rotate"></p></span>
+        </div>
+       	<div class="layout-accordion">
+       	  <div class="layout-accordion-content">
+<pre style="border: 0;">
+<code class="language-js">
+DBapp.ui.Msg.Cancel("提示", "OK", function(btn) {
+  if(btn == "yes") {
+    alert("选择是");
+  } else if(btn == "no") {
+    alert("选择否");
+  } else if(btn == "cancel") {
+    alert("选择关闭");
+  }
+});
+</code>
+</pre>       	  
+       	  </div>
+     	  </div>
+      </div>
+      
+    </div>  
+    <script type="text/javascript" src="../js/lang.js"></script>
+    <script type="text/javascript" src="../js/setting.js"></script>
+    <script type="text/javascript" src="../js/info.js"></script>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/dbapp.js"></script>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript" src="../js/base.js"></script>
+    <script type="text/javascript" src="js/dialog.js"></script>
+    <link rel="stylesheet" type="text/css" href="../js/rainbow/css/monokai.css"/>
+    <script type="text/javascript" src="../js/rainbow/js/rainbow-custom.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+.cls-win10 {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	padding: 10px;
+	background: #333;
+}
+.cls-win10-col {
+	float: left;
+	position: relative;
+	padding: 8px;
+}
+.cls-win10-col4 {
+	width: 25%;
+}
+.cls-win10-box {
+  width: 100%;
+  float: left;
+  text-align: center;
+  margin: 0px 0px 16px 0px;
+  background: #999933;
+}
+.cls-win10-bind {
+	width: 100%;
+	height: 150px;
+  line-height: 150px;
+  float: left;
+  padding: 0px;
+  font-size: 2em;
+  color: #ffffff;
+  text-shadow: 1px 2px 2px rgba(33, 33, 33, 1);
+}
+.cls-win10-color1 {
+	background: #339966;
+}
+.cls-win10-color2 {
+	background: #993333;
+}
+.cls-win10-color3 {
+	background: #cc9933;
+}
+.cls-win10-color4 {
+	background: #006699;
+}
+.cls-win10-color5 {
+  background: #cc9933;
+}

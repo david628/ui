@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="pragma" content="no-cache"></meta>
+<meta http-equiv="cache-control" content="no-cache"></meta>
+<meta http-equiv="expires" content="0"></meta>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
+<link rel="stylesheet" type="text/css" href="css/dbapp.css">
+<link rel="stylesheet" type="text/css" href="css/default.css"></link>
+<title></title>
+</head>
+<body class="body-bg" style="display: none;">
+  <!-- <div id="id-app">
+     <layout-header></layout-header>
+    <layout-left></layout-left>
+    <layout-bottom></layout-bottom>
+    <div id="id-layout-right" class="layout-right">
+    
+    </div>
+   </div> -->
+   <div id="id-layout-top" class="layout-top"></div>
+   <div id="id-layout-left" class="layout-left cls-accordion-menu"></div>
+   <div id="id-layout-bottm" class="layout-bottm"></div>
+   <div id="id-layout-right" class="layout-right">
+   </div>
+</body>
+<script type="text/javascript" src="js/lang.js"></script>
+<script type="text/javascript" src="js/info.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/setting.js"></script>
+<script type="text/javascript" src="js/dbapp.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/md5.js"></script>
+<script type="text/javascript">
+(function() {
+	$.ajax({
+		type: "get",
+		url: "application/json",
+		dataType: "json",
+		url: base.getAction("user_menus.do"),
+		cache: false,
+		data: {},
+		success: function(data) {
+			if(data.ret) {
+				base.init();
+			} else {
+				window.location.href = "login.html";
+			}
+		},
+		error: function() {
+			window.location.href = "login.html";
+		}
+	});
+})();
+</script>
+</html>

@@ -1,0 +1,59 @@
+{
+  "user": {
+    "userId": 1,
+    "name": "帐户",
+    "roleId": 1001,
+    "source": 1,
+    "userName": "admin",
+    "verifier": 0
+  },
+  "menus": [{
+    "desc": "表格",
+    "name": "grid",
+    "menuList": []
+  }, {
+    "desc": "对话框",
+    "name": "dialog",
+    "menuList": []
+  }, {
+    "desc": "下拉框",
+    "name": "combo",
+    "menuList": []
+  }, {
+    "desc": "Loading",
+    "name": "loading",
+    "menuList": []
+  }, {
+    "desc": "瀑布流",
+    "name": "waterfall",
+    "menuList": []
+  }, {
+    "desc": "提示框",
+    "name": "tip",
+    "menuList": []
+  }, {
+    "desc": "工具类",
+    "name": "util",
+    "menuList": [{
+    	"desc": "dragDrop(拖拽移动)",
+      "name": "dragDrop",
+      "menuList": []
+    }, {
+    	"desc": "resize(拖拽改变大小)",
+      "name": "resize",
+      "menuList": []
+    }, {
+    	"desc": "alignTo(对齐)",
+      "name": "alignTo",
+      "menuList": []
+    }]
+  }, {
+  	"desc": "仿Mac效果",
+    "name": "mac",
+    "menuList": []
+  }, {
+  	"desc": "仿淘宝菜单",
+    "name": "taobao",
+    "menuList": []
+  }]
+}
